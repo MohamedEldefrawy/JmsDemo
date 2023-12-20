@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/data/bindings/activemq-bindings-1.bindings
+/data/bindings/activemq-bindings-2.bindings
