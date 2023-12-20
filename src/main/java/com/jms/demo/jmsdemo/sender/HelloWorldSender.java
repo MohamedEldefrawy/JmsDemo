@@ -4,6 +4,7 @@ import com.jms.demo.jmsdemo.config.JmsConfig;
 import com.jms.demo.jmsdemo.model.HelloWorldMessage;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -12,12 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloWorldSender {
   private final JmsTemplate jmsTemplate;
+  private final Logger logger;
 
   @Scheduled(fixedRate = 2000)
   public void sendMessage() {
-
-    System.out.println("Sending Message");
-
+    logger.info("Sending Message");
     HelloWorldMessage message = HelloWorldMessage.builder()
         .id(UUID.randomUUID())
         .message("Hello world !!!")
